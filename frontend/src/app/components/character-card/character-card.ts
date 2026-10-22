@@ -11,6 +11,6 @@ import {CharacterCardType} from '../../enums/character-card-type';
   styleUrl: './character-card.css',
 })
 export class CharacterCard {
-  data = input<CharacterModel>();
-  type = input<CharacterCardType>(CharacterCardType.FILLED);
+  personaje = input<CharacterModel>();
+  tipo = input<CharacterCardType>(CharacterCardType.FILLED);
 }

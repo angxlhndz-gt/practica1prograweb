@@ -1,9 +1,9 @@
 <p>demon-slayer-characters-list works!</p>
 
-@for (item of toDemonSlayerCards(); track item.id) {
+@for (personaje of crearTarjetasDemonSlayer(); track personaje.id) {
   <app-character-card
-    [data]="item"
-    [type]="characterCardType.ROUNDED"
+    [personaje]="personaje"
+    [tipo]="tipoTarjeta.ROUNDED"
   >
   </app-character-card>
 

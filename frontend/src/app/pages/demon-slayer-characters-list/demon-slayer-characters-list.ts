@@ -11,9 +11,9 @@ import {CharacterCardType} from '../../enums/character-card-type';
 })
 export class DemonSlayerCharactersList {
 
-  readonly characterCardType = CharacterCardType;
+  readonly tipoTarjeta = CharacterCardType;
 
-  readonly demonSlayerRoster = [
+  readonly personajesDemonSlayer = [
     {
       "id": 1,
       "name": "Tanjiro Kamado",
@@ -76,18 +76,18 @@ export class DemonSlayerCharactersList {
     }
   ]
 
-  toDemonSlayerCards(): CharacterModel[] {
-    return this.demonSlayerRoster.map(
-      characterRecord => this.toCharacterCard(characterRecord)
+  crearTarjetasDemonSlayer(): CharacterModel[] {
+    return this.personajesDemonSlayer.map(
+      personajeApi => this.crearTarjeta(personajeApi)
     );
   }
 
-  private toCharacterCard(characterRecord: any): CharacterModel {
+  private crearTarjeta(personajeApi: any): CharacterModel {
     return {
-      id: characterRecord.id,
-      name: characterRecord.name,
-      description: characterRecord.description,
-      img: characterRecord.img
+      id: personajeApi.id,
+      name: personajeApi.name,
+      description: personajeApi.description,
+      img: personajeApi.img
     }
   }
 }

@@ -13,26 +13,26 @@ import { filter } from 'rxjs';
   styleUrl: './app.css'
 })
 export class App {
-  private readonly pageDocument = inject(DOCUMENT);
-  private readonly appRouter = inject(Router);
-  readonly darkThemeEnabled = signal(false);
-  readonly onProductsPage = signal(this.appRouter.url.startsWith('/products-list'));
+  private readonly documento = inject(DOCUMENT);
+  private readonly enrutador = inject(Router);
+  readonly temaOscuro = signal(false);
+  readonly enProductos = signal(this.enrutador.url.startsWith('/products-list'));
 
   constructor() {
-    this.syncProductsPageState(this.appRouter.url);
-    this.appRouter.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event) => {
-      this.syncProductsPageState((event as NavigationEnd).urlAfterRedirects);
+    this.actualizarPaginaProductos(this.enrutador.url);
+    this.enrutador.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event) => {
+      this.actualizarPaginaProductos((event as NavigationEnd).urlAfterRedirects);
     });
   }
 
-  private syncProductsPageState(currentUrl: string) {
-    const showPlainProductsLayout = currentUrl.startsWith('/products-list');
-    this.onProductsPage.set(showPlainProductsLayout);
-    this.pageDocument.documentElement.classList.toggle('plain-products-page', showPlainProductsLayout);
+  private actualizarPaginaProductos(urlActual: string) {
+    const esVistaProductos = urlActual.startsWith('/products-list');
+    this.enProductos.set(esVistaProductos);
+    this.documento.documentElement.classList.toggle('plain-products-page', esVistaProductos);
   }
 
-  switchTheme() {
-    this.darkThemeEnabled.update((isDarkThemeActive) => !isDarkThemeActive);
-    this.pageDocument.documentElement.classList.toggle('theme-dark', this.darkThemeEnabled());
+  cambiarTema() {
+    this.temaOscuro.update((temaActivo) => !temaActivo);
+    this.documento.documentElement.classList.toggle('theme-dark', this.temaOscuro());
   }
 }

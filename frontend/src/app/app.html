@@ -1,4 +1,4 @@
-@if (!onProductsPage()) {
+@if (!enProductos()) {
 <mat-toolbar class="site-toolbar">
   <a class="site-title" routerLink="/">Explorador de personajes</a>
   <nav class="main-nav" aria-label="Navegación principal">
@@ -9,7 +9,7 @@
     <a mat-button routerLink="/characters/demon-slayer" routerLinkActive="nav-active">Demon Slayer</a>
     <a mat-button routerLink="/products-list" routerLinkActive="nav-active">Productos API</a>
   </nav>
-  <button mat-icon-button class="theme-button" (click)="switchTheme()" [attr.aria-label]="darkThemeEnabled() ? 'Activar tema claro' : 'Activar tema oscuro'" [title]="darkThemeEnabled() ? 'Tema claro' : 'Tema oscuro'"><mat-icon>{{ darkThemeEnabled() ? 'light_mode' : 'dark_mode' }}</mat-icon></button>
+  <button mat-icon-button class="theme-button" (click)="cambiarTema()" [attr.aria-label]="temaOscuro() ? 'Activar tema claro' : 'Activar tema oscuro'" [title]="temaOscuro() ? 'Tema claro' : 'Tema oscuro'"><mat-icon>{{ temaOscuro() ? 'light_mode' : 'dark_mode' }}</mat-icon></button>
 </mat-toolbar>
 }
 <router-outlet />

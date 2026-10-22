@@ -11,9 +11,9 @@ import {CharacterCardType} from '../../enums/character-card-type';
 })
 export class DbzCharactersList {
 
-  readonly characterCardType = CharacterCardType;
+  readonly tipoTarjeta = CharacterCardType;
 
-  readonly dragonBallRoster = [
+  readonly personajesDragonBall = [
     {
       "id": 1,
       "name": "Goku",
@@ -40,18 +40,18 @@ export class DbzCharactersList {
     }
   ]
 
-  toDragonBallCards(): CharacterModel[] {
-    return this.dragonBallRoster.map(
-      characterRecord => this.toCharacterCard(characterRecord)
+  crearTarjetasDragonBall(): CharacterModel[] {
+    return this.personajesDragonBall.map(
+      personajeApi => this.crearTarjeta(personajeApi)
     );
   }
 
-  private toCharacterCard(characterRecord: any): CharacterModel {
+  private crearTarjeta(personajeApi: any): CharacterModel {
     return {
-      id: characterRecord.id,
-      name: characterRecord.name,
-      description: characterRecord.description,
-      img: characterRecord.image
+      id: personajeApi.id,
+      name: personajeApi.name,
+      description: personajeApi.description,
+      img: personajeApi.image
     }
   }
 }

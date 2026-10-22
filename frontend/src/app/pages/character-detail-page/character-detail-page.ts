@@ -9,7 +9,7 @@ import { ExplorerCharacter, UniverseId } from '../../interfaces/explorer-charact
 import { ImagePreviewDialog } from '../../components/image-preview-dialog/image-preview-dialog';
 import { MatDialog } from '@angular/material/dialog';
 
-const TITLES: Record<UniverseId, string> = { digimon: 'Digimon', 'dragon-ball': 'Dragon Ball Z', pokemon: 'Pokémon', 'demon-slayer': 'Demon Slayer' };
+const TITULOS: Record<UniverseId, string> = { digimon: 'Digimon', 'dragon-ball': 'Dragon Ball Z', pokemon: 'Pokémon', 'demon-slayer': 'Demon Slayer' };
 
 @Component({
   selector: 'app-character-detail-page',
@@ -19,20 +19,20 @@ const TITLES: Record<UniverseId, string> = { digimon: 'Digimon', 'dragon-ball': 
   styleUrl: './character-detail-page.css',
 })
 export class CharacterDetailPage {
-  private readonly route = inject(ActivatedRoute);
-  private readonly apis = inject(CharacterApiRegistry);
-  private readonly dialog = inject(MatDialog);
-  readonly universe = this.readUniverse(this.route.snapshot.paramMap.get('universe'));
-  readonly title = TITLES[this.universe];
-  readonly character = signal<ExplorerCharacter | null>(null);
-  readonly loading = signal(true);
-  readonly error = signal(false);
+  private readonly ruta = inject(ActivatedRoute);
+  private readonly servicios = inject(CharacterApiRegistry);
+  private readonly dialogo = inject(MatDialog);
+  readonly universo = this.leerUniverso(this.ruta.snapshot.paramMap.get('universe'));
+  readonly titulo = TITULOS[this.universo];
+  readonly personaje = signal<ExplorerCharacter | null>(null);
+  readonly cargando = signal(true);
+  readonly huboError = signal(false);
 
   constructor() {
-    const id = this.route.snapshot.paramMap.get('id') ?? '';
-    this.apis.detail(this.universe, id).subscribe({ next: (item) => { this.character.set(item); this.loading.set(false); }, error: () => { this.error.set(true); this.loading.set(false); } });
+    const id = this.ruta.snapshot.paramMap.get('id') ?? '';
+    this.servicios.detail(this.universo, id).subscribe({ next: (resultado) => { this.personaje.set(resultado); this.cargando.set(false); }, error: () => { this.huboError.set(true); this.cargando.set(false); } });
   }
 
-  openImage(item: ExplorerCharacter) { this.dialog.open(ImagePreviewDialog, { data: { name: item.name, image: item.image }, maxWidth: '94vw', panelClass: 'image-preview-panel' }); }
-  private readUniverse(value: string | null): UniverseId { return value === 'digimon' || value === 'dragon-ball' || value === 'pokemon' || value === 'demon-slayer' ? value : 'digimon'; }
+  abrirImagen(personaje: ExplorerCharacter) { this.dialogo.open(ImagePreviewDialog, { data: { name: personaje.name, image: personaje.image }, maxWidth: '94vw', panelClass: 'image-preview-panel' }); }
+  private leerUniverso(value: string | null): UniverseId { return value === 'digimon' || value === 'dragon-ball' || value === 'pokemon' || value === 'demon-slayer' ? value : 'digimon'; }
 }

@@ -1,12 +1,12 @@
 <mat-card class="main-container">
   <mat-card-header>
-    <img [ngClass]="type()==='filled'?'image-filled':'image-rounded' "
-         [src]=data()?.img
-         alt="{{data()?.name}}">
+  <img [ngClass]="tipo()==='filled'?'image-filled':'image-rounded' "
+         [src]=personaje()?.img
+         alt="{{personaje()?.name}}">
   </mat-card-header>
   <mat-card-content>
-    <h3> {{ data()?.id }} - {{ data()?.name }}</h3>
-    <p> {{ data()?.description }}</p>
+    <h3> {{ personaje()?.id }} - {{ personaje()?.name }}</h3>
+    <p> {{ personaje()?.description }}</p>
   </mat-card-content>
 
 </mat-card>

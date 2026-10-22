@@ -1,9 +1,12 @@
-:root { color-scheme: light; --page-bg: #f5f6fa; --surface: #fff; --text: #18202d; --muted: #727c8e; --line: #e2e6ee; --accent: #8de1cb; }
-:root.theme-dark { color-scheme: dark; --page-bg: #10141c; --surface: #181e29; --text: #f1f4fa; --muted: #a2acbc; --line: #2a3342; --accent: #83e3cf; }
-html, body { min-height: 100%; margin: 0; background: var(--page-bg); color: var(--text); font-family: Roboto, "Helvetica Neue", sans-serif; transition: background-color .2s ease, color .2s ease; }
-body { font: var(--mat-sys-body-medium); }
+:root { color-scheme: light; --page-bg: #fff; --surface: #fff; --text: #181818; --muted: #555; --line: #ccc; --accent: #333; }
+:root.theme-dark { color-scheme: dark; --page-bg: #181818; --surface: #222; --text: #f4f4f4; --muted: #ccc; --line: #555; --accent: #eee; }
+html, body { min-height: 100%; margin: 0; background: var(--page-bg); color: var(--text); font-family: Arial, sans-serif; }
+body { font: 16px Arial, sans-serif; }
 * { box-sizing: border-box; }
 .page-shell { color: var(--text); }
-.image-preview-panel .mat-mdc-dialog-container { --mdc-dialog-container-color: var(--surface); --mdc-dialog-container-shape: 18px; }
+.mat-mdc-card { border-radius: 0 !important; box-shadow: none !important; }
+.mat-mdc-button, .mat-mdc-outlined-button, .mat-mdc-unelevated-button, .mat-mdc-icon-button { --mdc-text-button-container-shape: 0px; --mdc-outlined-button-container-shape: 0px; --mdc-filled-button-container-shape: 0px; --mdc-icon-button-state-layer-size: 40px; border-radius: 0 !important; box-shadow: none !important; }
+.mat-mdc-outlined-button { border: 1px solid currentColor !important; }
+.image-preview-panel .mat-mdc-dialog-container { --mdc-dialog-container-color: var(--surface); --mdc-dialog-container-shape: 0px; }
 html.plain-products-page { color-scheme: light; }
-html.plain-products-page body { margin: 8px; background: #fff; color: #000; font: 16px Arial, sans-serif; transition: none; }
+html.plain-products-page body { margin: 8px; background: #fff; color: #000; font: 16px Arial, sans-serif; }

@@ -7,5 +7,5 @@ import { ProductsRestService } from '../../services/products-rest-service';
   styleUrl: './products-list.css',
 })
 export class ProductsList {
-  constructor(readonly inventoryApi: ProductsRestService) {}
+  constructor(readonly servicioProductos: ProductsRestService) {}
 }

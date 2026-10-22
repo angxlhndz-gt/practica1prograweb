@@ -4,6 +4,9 @@
   width: 400px;
   padding: 15px;
   margin: 10px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 mat-card-header {
@@ -20,9 +23,9 @@ mat-card-header {
 .image-rounded {
   height: 150px;
   width: 150px;
-  border-radius: 50%;
+  border-radius: 0;
   object-fit: cover;
   object-position: center;
   padding: 10px;
-  border: 1px solid lightgray;
+  border: 0;
 }

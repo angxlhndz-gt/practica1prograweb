@@ -1,9 +1,9 @@
 <p>demon-slayer-characters-list works!</p>
 
-@for (item of toDragonBallCards(); track item.id) {
+@for (personaje of crearTarjetasDragonBall(); track personaje.id) {
   <app-character-card
-    [data]="item"
-    [type]="characterCardType.FILLED"
+    [personaje]="personaje"
+    [tipo]="tipoTarjeta.FILLED"
   >
   </app-character-card>
 
