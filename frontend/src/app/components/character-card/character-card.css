@@ -1,0 +1,28 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  padding: 15px;
+  margin: 10px;
+}
+
+mat-card-header {
+  width: 100%;
+}
+
+.image-filled {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.image-rounded {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  padding: 10px;
+  border: 1px solid lightgray;
+}

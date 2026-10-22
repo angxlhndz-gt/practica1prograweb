@@ -1,0 +1,14 @@
+<main class="page-shell detail-page">
+  <a class="back-link" [routerLink]="['/characters', universe]">← Volver a {{ title }}</a>
+  @if (loading()) { <section class="state"><mat-spinner diameter="42"></mat-spinner><p>Cargando ficha…</p></section> }
+  @else if (error() || !character()) { <section class="state"><mat-icon>cloud_off</mat-icon><h2>No encontramos este personaje</h2><a mat-button [routerLink]="['/characters', universe]">Regresar al listado</a></section> }
+  @else if (character(); as item) {
+    <mat-card class="detail-card">
+      <div class="portrait"><button type="button" (click)="openImage(item)" [attr.aria-label]="'Ampliar imagen de ' + item.name"><img [src]="item.image" [alt]="item.name"><span><mat-icon>open_in_full</mat-icon> Ampliar imagen</span></button></div>
+      <section class="info"><p class="eyebrow">{{ title }} · PERSONAJE #{{ item.id }}</p><h1>{{ item.name }}</h1><p class="description">{{ item.description || 'La API no proporciona una descripción para este personaje.' }}</p>
+        @if (item.fields.length) { <div class="field-grid">@for (entry of item.fields; track entry.label) { <div class="field"><span>{{ entry.label }}</span><strong>{{ entry.value }}</strong></div> }</div> }
+        <a mat-stroked-button routerLink="/">Inicio</a>
+      </section>
+    </mat-card>
+  }
+</main>

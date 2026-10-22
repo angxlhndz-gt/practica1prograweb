@@ -1,0 +1,15 @@
+@if (!onProductsPage()) {
+<mat-toolbar class="site-toolbar">
+  <a class="site-title" routerLink="/">Explorador de personajes</a>
+  <nav class="main-nav" aria-label="Navegación principal">
+    <a mat-button routerLink="/" routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+    <a mat-button routerLink="/characters/digimon" routerLinkActive="nav-active">Digimon</a>
+    <a mat-button routerLink="/characters/dragon-ball" routerLinkActive="nav-active">Dragon Ball Z</a>
+    <a mat-button routerLink="/characters/pokemon" routerLinkActive="nav-active">Pokémon</a>
+    <a mat-button routerLink="/characters/demon-slayer" routerLinkActive="nav-active">Demon Slayer</a>
+    <a mat-button routerLink="/products-list" routerLinkActive="nav-active">Productos API</a>
+  </nav>
+  <button mat-icon-button class="theme-button" (click)="switchTheme()" [attr.aria-label]="darkThemeEnabled() ? 'Activar tema claro' : 'Activar tema oscuro'" [title]="darkThemeEnabled() ? 'Tema claro' : 'Tema oscuro'"><mat-icon>{{ darkThemeEnabled() ? 'light_mode' : 'dark_mode' }}</mat-icon></button>
+</mat-toolbar>
+}
+<router-outlet />

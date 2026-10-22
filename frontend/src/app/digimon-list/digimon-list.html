@@ -1,0 +1,11 @@
+<p>digimon-list works!</p>
+@if (digimonApi.digimonResource.isLoading()) {
+	<div>Se esta consultando la informacion... </div>
+
+	@if (digimonApi.digimonResource.error()){
+		<div>Ocurrio un error al consultar la informacion...</div>
+	}
+@if (digimonApi.digimonResource.hasValue()) {
+	<div>{{ digimonApi.digimonResource.value() | json }} </div>
+}
+}

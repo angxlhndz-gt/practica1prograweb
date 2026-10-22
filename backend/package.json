@@ -1,0 +1,43 @@
+{
+  "name": "backend-angular20-products",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API REST didactica con Node.js, Express, TypeScript, Prisma y MySQL",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "@prisma/client": "6.16.2",
+    "cors": "2.8.5",
+    "dotenv": "16.6.1",
+    "express": "5.1.0",
+    "helmet": "8.1.0",
+    "swagger-jsdoc": "6.2.8",
+    "swagger-ui-express": "5.0.1",
+    "zod": "4.1.5"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.19",
+    "@types/express": "5.0.3",
+    "@types/node": "22.18.6",
+    "@types/swagger-jsdoc": "6.0.4",
+    "@types/swagger-ui-express": "4.1.8",
+    "prisma": "6.16.2",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}

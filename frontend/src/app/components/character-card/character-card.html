@@ -1,0 +1,12 @@
+<mat-card class="main-container">
+  <mat-card-header>
+    <img [ngClass]="type()==='filled'?'image-filled':'image-rounded' "
+         [src]=data()?.img
+         alt="{{data()?.name}}">
+  </mat-card-header>
+  <mat-card-content>
+    <h3> {{ data()?.id }} - {{ data()?.name }}</h3>
+    <p> {{ data()?.description }}</p>
+  </mat-card-content>
+
+</mat-card>

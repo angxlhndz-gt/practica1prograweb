@@ -1,0 +1,18 @@
+<h1>Backend local</h1>
+
+@if (inventoryApi.productsResource.isLoading()) {
+  <p role="status">Cargando productos...</p>
+}
+
+@if (inventoryApi.productsResource.error()) {
+  <p role="alert">No se pudieron cargar los productos. Comprueba que el backend esté encendido.</p>
+}
+
+@if (inventoryApi.productsResource.hasValue()) {
+  @let productResponse = inventoryApi.productsResource.value();
+  @for (product of productResponse.data; track product.id) {
+  <div>{{ product.id }} {{ product.name }} {{ product.sku }} {{ product.category?.id ?? product.categoryId }}-{{ product.category?.name ?? 'Sin categoría' }}</div>
+  } @empty {
+  <p>No hay productos para mostrar.</p>
+  }
+}

@@ -1,0 +1,18 @@
+<main class="page-shell catalog">
+  <a class="back-link" routerLink="/">← Inicio</a>
+  <header class="catalog-head"><div><h1>{{ title }}</h1><p class="subhead">Personajes obtenidos desde su API.</p></div></header>
+
+  @if (loading()) { <section class="state"><mat-spinner diameter="42"></mat-spinner><p>Conectando con el universo…</p></section> }
+  @else if (error()) { <section class="state error-state"><mat-icon>cloud_off</mat-icon><h2>No se pudo cargar la colección</h2><p>Revisa tu conexión e inténtalo de nuevo.</p><button mat-stroked-button (click)="retry()">Reintentar</button></section> }
+  @else if (page(); as currentPage) {
+    <section class="character-grid">
+      @for (character of currentPage.items; track character.id) {
+        <mat-card class="character-card">
+          <div class="image-wrap"><button class="image-button" type="button" (click)="openImage(character)" [attr.aria-label]="'Ampliar imagen de ' + character.name"><img [src]="character.image" [alt]="character.name" loading="lazy"><span class="zoom-icon"><mat-icon>open_in_full</mat-icon></span></button><span class="id-badge">#{{ character.id }}</span></div>
+          <mat-card-content><h2>{{ character.name }}</h2><p class="character-id">ID: {{ character.id }}</p>@if (character.description) { <p class="description">{{ character.description }}</p> }<a mat-button [routerLink]="['/characters', universe, character.id]">Ver detalle</a></mat-card-content>
+        </mat-card>
+      } @empty { <p>No hay personajes en esta página.</p> }
+    </section>
+    <mat-paginator [length]="currentPage.total" [pageIndex]="pageIndex()" [pageSize]="pageSize" [pageSizeOptions]="[12]" (page)="changePage($event)" aria-label="Páginas de personajes"></mat-paginator>
+  }
+</main>

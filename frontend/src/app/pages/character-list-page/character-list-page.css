@@ -1,0 +1,25 @@
+.catalog { max-width: 1100px; margin: 0 auto; padding: 24px 24px 40px; }
+.back-link { color: var(--text); font-size: 14px; }
+.catalog-head { margin: 20px 0; }
+.catalog h1 { margin: 0 0 6px; font-size: 30px; font-weight: 500; }
+.subhead { margin: 0; color: var(--muted); }
+.character-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.character-card { overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.image-wrap { position: relative; height: 190px; background: #fff; }
+.image-button { display: grid; place-items: center; width: 100%; height: 100%; padding: 12px; border: 0; background: transparent; cursor: zoom-in; }
+.image-button img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.zoom-icon { position: absolute; right: 8px; top: 8px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #fff; }
+.zoom-icon mat-icon { font-size: 17px; width: 17px; height: 17px; }
+.id-badge { position: absolute; left: 8px; top: 8px; padding: 4px 7px; background: #fff; color: #222; font-size: 12px; }
+.character-card mat-card-content { padding: 14px; }
+.character-card h2 { margin: 0 0 4px; font-size: 18px; font-weight: 500; }
+.character-id { margin: 0; color: var(--muted); font-size: 13px; }
+.description { color: var(--muted); font-size: 13px; line-height: 1.45; }
+.character-card a { padding-left: 0; }
+.state { min-height: 240px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; }
+.error-state mat-icon, .state mat-icon { color: #a33; }
+.state h2, .state p { margin: 0; }
+mat-paginator { margin-top: 16px; background: var(--surface); color: var(--text); }
+@media (max-width: 950px) { .character-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .character-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .catalog { padding: 20px 14px 32px; } .image-wrap { height: 165px; } }
+@media (max-width: 420px) { .character-grid { grid-template-columns: 1fr; } .image-wrap { height: 210px; } }

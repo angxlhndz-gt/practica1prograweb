@@ -1,0 +1,18 @@
+<main class="home page-shell">
+  <h1>Explorador de personajes</h1>
+  <p>Selecciona un universo para consultar sus personajes.</p>
+
+  <section class="universe-grid" aria-label="Universos disponibles">
+    @for (universe of universes; track universe.id) {
+      <a class="universe-link" [routerLink]="['/characters', universe.id]">
+        <mat-card class="universe-card">
+          <img [src]="universe.image" [alt]="'Personaje representativo de ' + universe.title" loading="lazy">
+          <mat-card-content>
+            <h2>{{ universe.title }}</h2>
+            <p>{{ universe.description }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </section>
+</main>

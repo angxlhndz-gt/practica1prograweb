@@ -1,0 +1,9 @@
+:root { color-scheme: light; --page-bg: #f5f6fa; --surface: #fff; --text: #18202d; --muted: #727c8e; --line: #e2e6ee; --accent: #8de1cb; }
+:root.theme-dark { color-scheme: dark; --page-bg: #10141c; --surface: #181e29; --text: #f1f4fa; --muted: #a2acbc; --line: #2a3342; --accent: #83e3cf; }
+html, body { min-height: 100%; margin: 0; background: var(--page-bg); color: var(--text); font-family: Roboto, "Helvetica Neue", sans-serif; transition: background-color .2s ease, color .2s ease; }
+body { font: var(--mat-sys-body-medium); }
+* { box-sizing: border-box; }
+.page-shell { color: var(--text); }
+.image-preview-panel .mat-mdc-dialog-container { --mdc-dialog-container-color: var(--surface); --mdc-dialog-container-shape: 18px; }
+html.plain-products-page { color-scheme: light; }
+html.plain-products-page body { margin: 8px; background: #fff; color: #000; font: 16px Arial, sans-serif; transition: none; }
